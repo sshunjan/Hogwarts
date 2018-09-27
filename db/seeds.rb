@@ -8,5 +8,16 @@
 Student.delete_all
 House.delete_all
 
-ravenclaw = House.create(name: 'Ravenclaw', points: 0)
-harry = ravenclaw.students.create(name: Faker::Name.name)
+8.times do
+  house = House.create(name: Faker::HarryPotter.unique.house,
+                       points: Faker::Number.number(2))
+
+  number_of_students = Faker::Number.number(2).to_i
+
+  puts "Adding #{number_of_students} students to #{house.name}"
+
+  number_of_students.times do
+    house.students.create(name: Faker::Name.name)
+  end
+
+end
