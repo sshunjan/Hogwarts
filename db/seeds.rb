@@ -5,9 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-House.delete_all
 Student.delete_all
+House.delete_all
 
 ravenclaw = House.create(name: 'Ravenclaw', points: 0)
-harry = ravenclaw.students.create(name: 'Harry Potter')
+harry = ravenclaw.students.create(name: Faker::Name.name)
